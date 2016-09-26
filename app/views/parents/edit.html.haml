@@ -1,0 +1,8 @@
+%h1 Editing parent
+
+= render 'form'
+- if current_user.admin? || current_user.management?
+  = link_to 'Show', @parent
+  \|
+%br
+= link_to 'Back', parents_path , class: "btn btn-primary "

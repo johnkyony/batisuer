@@ -1,0 +1,10 @@
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+grade_1:
+  grade: first_grade 
+  price: 200
+
+grade_2:
+  grade: second_grade
+  price: 300

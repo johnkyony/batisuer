@@ -1,10 +1,27 @@
 - if user_signed_in?
+  - if current_user.admin?
+    li = link_to 'Users', users_path
+  - if current_user.cashier?
+    li = link_to 'receipts' , receipts_path
+  - if current_user.administration?    
+    li = link_to 'parents' , parents_path
+  - if current_user.finances?
+    li = link_to 'students' , students_path
+    li = link_to 'accounts' , accounts_path
+    li = link_to 'receipts' , receipts_path
+    li = link_to 'fees' , fees_path
+        
+- if user_signed_in?
+  - if current_user.admin? || current_user.management?
+    li = link_to 'fees' , fees_path
+    li = link_to 'grades' , grades_path
+    li = link_to 'students' , students_path
+    li = link_to 'parents' , parents_path
+    li = link_to 'accounts' , accounts_path
+    li = link_to 'receipts' , receipts_path
   li = link_to 'Edit account', edit_user_registration_path
   li = link_to 'Sign out', destroy_user_session_path, :method=>'delete'
 - else
   li = link_to 'Sign in', new_user_session_path
   li = link_to 'Sign up', new_user_registration_path
-- if user_signed_in?
-  - if current_user.admin?
-    li = link_to 'Users', users_path
 

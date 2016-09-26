@@ -1,0 +1,12 @@
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+mike_account:
+  student: joy 
+  grade: Grade 1
+  amount: 100
+
+rebaca_account:
+  student: rebaca 
+  grade: Grade 2
+  amount: 50

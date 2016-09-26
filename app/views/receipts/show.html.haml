@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Student:
+  = "#{@receipt.student.name} \t #{@receipt.student.surname}"
+%p
+  %b Amount:
+  = @receipt.amount
+
+= link_to 'Edit', edit_receipt_path(@receipt)
+\|
+= link_to 'Back', receipts_path

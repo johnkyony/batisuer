@@ -2,10 +2,35 @@ admin:
   name:  Almighty Admin
   email: admin@gmail.com
   encrypted_password: <%= User.new.send(:password_digest, "topsecret") %>
-  role: 1
+  role: 5
 
 user:
   name: Simple User
   email: user@gmail.com
   encrypted_password: <%= User.new.send(:password_digest, "topsecret") %>
   role: 0
+
+administration: 
+  name: John
+  email: jkyony@gmail.com
+  encrypted_password: <%= User.new.send(:password_digest, "topsecret") %>
+  role: 1
+
+cashier:
+  name: Lena
+  email: lena@gmail.com
+  encrypted_password: <%= User.new.send(:password_digest, "topsecret") %>
+  role: 2
+
+finances:
+  name: Glen
+  email: glen@gmail.com
+  encrypted_password: <%= User.new.send(:password_digest, "topsecret") %>
+  role: 3
+
+management:
+  name: natifa
+  email: natifa@gmail.com
+  encrypted_password: <%= User.new.send(:password_digest, "topsecret") %>
+  role: 4
+

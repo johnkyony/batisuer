@@ -1,0 +1,10 @@
+= simple_form_for(@parent) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.input :surname
+    = f.input :phone_number
+
+  .form-actions
+    = f.button :submit

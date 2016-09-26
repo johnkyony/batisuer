@@ -8,6 +8,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
+gem 'faker'
 group :development, :test do
   gem 'byebug'
 end
@@ -22,8 +23,9 @@ gem 'font-awesome-sass'
 gem 'simple_form'
 gem 'haml-rails'
 gem 'high_voltage'
-gem 'devise'
+gem 'devise' , '~>4.1.1'
 gem 'pundit'
+
 group :development do
   gem 'guard-bundler'
   gem 'guard-minitest'

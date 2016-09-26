@@ -1,0 +1,32 @@
+%section.search-results
+  %ol.list-group
+   
+    %li.list-group-item.clearfix
+      %h3.pull-right
+        %small.text-uppercase Balance
+        - if @account.blank?
+          %p Create account
+        - else 
+          = @final_balance
+      %h2.h3
+        = @student.name
+        = @student.surname
+        %small= @student.parent.phone_number
+      %h3
+        - if ! @account.blank?
+          = @account.grade.name
+
+      %h4= "Parent name : \t"+@student.parent.name + "#{"\t"}"+@student.parent.surname
+
+%section.search-results
+  %ol.list-group
+    - @receipts.each do |receipt| 
+      %li.list-group-item.clearfix[receipt]
+        %h3.pull-right
+          %small.text-uppercase Created on 
+          = l receipt.created_at.to_date
+        %h2.h3
+
+          = "Amount paid: \t" + "#{receipt.amount}"
+        
+          

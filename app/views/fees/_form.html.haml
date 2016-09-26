@@ -1,0 +1,9 @@
+= simple_form_for(@fee) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.association :grade
+    = f.input :price
+
+  .form-actions
+    = f.button :submit

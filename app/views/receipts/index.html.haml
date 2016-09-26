@@ -1,0 +1,23 @@
+%h1 Listing receipts
+
+%table
+  %thead
+    %tr
+      %th Student
+      %th Amount
+      %th
+      %th
+      %th
+
+  %tbody
+    - @receipts.each do |receipt|
+      %tr
+        %td= "#{receipt.student.name} \t #{receipt.student.surname}"
+        %td= receipt.amount
+        %td= link_to 'Show', receipt
+        %td= link_to 'Edit', edit_receipt_path(receipt)
+        %td= link_to 'Destroy', receipt, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Receipt', new_receipt_path

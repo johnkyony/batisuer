@@ -1,0 +1,14 @@
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+rebaca:
+  name: rebaca
+  surname: luabeya
+
+  parent: pierot
+
+joy:
+  name: joy
+  surname: kyony
+  
+  parent: mike 

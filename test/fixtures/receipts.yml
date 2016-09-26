@@ -1,0 +1,10 @@
+# Read about fixtures at
+# http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+rebeca_first_payment:
+  student: rebeca
+  amount: 20
+
+rebeca_second_payment:
+  student: 
+  amount: 1
