@@ -28,7 +28,7 @@ class ReceiptsController < ApplicationController
 
     respond_to do |format|
       if @receipt.save
-        format.html { redirect_to @receipt, notice: 'Receipt was successfully created.' }
+        format.html { redirect_to students_path, notice: 'Receipt was successfully created.' }
         format.json { render :show, status: :created, location: @receipt }
       else
         format.html { render :new }

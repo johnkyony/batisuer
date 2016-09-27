@@ -32,4 +32,6 @@ feature "AdministrationFeatures" do
     assert_content student.surname
     
   end
+
+  scenario "Administration can add new "
 end

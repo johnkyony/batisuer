@@ -1,29 +1,37 @@
-%h1 Listing students
 - if current_user.administration?
   = link_to 'New Student', new_student_path , class: "btn btn-primary"
 
-- if current_user.admin? || current_user.finances?
-  %h3= "Total Parent balance : \t" +  "#{@total_balance}"
-%section.search-results
-  %ol.list-group
-    - @students.each do |student| 
-      %li.list-group-item.clearfix[student]
-        %h3.pull-right
-          %small.text-uppercase Joined
-          = l student.created_at.to_date
-        %h2.h3
-          = student.name
-          = student.surname
-          %small= student.parent.phone_number
-        %h4= "Parent name : \t"+student.parent.name + "#{"\t"}"+student.parent.surname
-        - if current_user.admin? || current_user.management? || current_user.finances?
-          =  link_to "Account details", student_account_balance_index_path(student),class: "btn btn-primary"
-        - if current_user.admin? || current_user.management? 
-          = link_to 'Edit', edit_student_path(student),class: "btn btn-primary pull-right"
-        
-          =  link_to 'Destroy', student, :method => :delete, :data => { :confirm => 'Are you sure?' },class: "btn btn-primary pull-right"
-       
 
 
+%h2.sub-header Listing students
+.table-responsive
+  %table.table.table-striped
+    %thead
+      %tr
+        %th #
+        %th Name
+        %th Surname
+        %th Parent Contact
+        %th Parent name
+        %th 
+        %th 
+        %th 
+        %th
+    %tbody
+      - @students.each do |student| 
+        %tr[student]
+          %td= student.id
+          %td= student.name
+          %td= student.surname
+          %td= student.parent.phone_number
+          %td= student.parent.name + "#{"\t"}"+student.parent.surname
+          - if current_user.admin? || current_user.management? || current_user.finances?
+            %td=  link_to "Account details", student_account_balance_index_path(student),class: "btn btn-primary"
+          - if current_user.finances? || current_user.cashier?
+            %td= link_to "Create Receipts" ,  new_student_receipt_path(student), class: "btn btn-primary"
 
-
+          - if current_user.admin? || current_user.management? 
+            %td= link_to 'Edit', edit_student_path(student),class: "btn btn-primary pull-right"
+      
+            %td=  link_to 'Destroy', student, :method => :delete, :data => { :confirm => 'Are you sure?' },class: "btn btn-primary pull-right"
+     
