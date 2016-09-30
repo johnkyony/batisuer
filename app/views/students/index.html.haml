@@ -17,7 +17,11 @@
         %th          
         - if user_signed_in?
           - if current_user.administration?|| current_user.admin?
-            %th= link_to 'New Student', new_student_path , class: "btn btn-primary pull-right"
+            - if params[:parent_id].blank?
+              %th= link_to 'New Student', new_student_path , class: "btn btn-primary pull-right"
+            - else 
+              %th= link_to 'New Student',  new_parent_student_path , class: "btn btn-primary pull-right"
+
     %tbody
       - @students.each do |student| 
         %tr[student]
