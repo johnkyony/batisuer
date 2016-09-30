@@ -9,7 +9,7 @@
     .form-actions
       = f.button :submit
 - else 
-  = simple_form_for[ @student,@receipt] do |f|
+  = simple_form_for([ @student,@receipt]) do |f|
     = f.error_notification
 
     .form-inputs
