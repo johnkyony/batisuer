@@ -1,6 +1,4 @@
-- if user_signed_in?
-  - if current_user.administration?
-    = link_to 'New Student', new_student_path , class: "btn btn-primary pull-right"
+
 
 
 
@@ -16,8 +14,10 @@
         %th Parent name
         %th 
         %th 
-        %th 
-        %th
+        %th          
+        - if user_signed_in?
+          - if current_user.administration?|| current_user.admin?
+            %th= link_to 'New Student', new_student_path , class: "btn btn-primary pull-right"
     %tbody
       - @students.each do |student| 
         %tr[student]

@@ -15,7 +15,7 @@
       %h3
         - if ! @account.blank?
           = @account.grade.name
-
+        - else   
       %h4= "Parent name : \t"+@student.parent.name + "#{"\t"}"+@student.parent.surname
 
 %section.search-results
