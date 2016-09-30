@@ -1,6 +1,6 @@
 class ReceiptsController < ApplicationController
   before_action :set_receipt, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_student, only: [:new, :create]
   # GET /receipts
   # GET /receipts.json
   def index
@@ -14,7 +14,13 @@ class ReceiptsController < ApplicationController
 
   # GET /receipts/new
   def new
-    @receipt = Receipt.new
+    if params[:student_id].blank?
+      @receipt = @student.receipts.new
+      
+    else
+      @receipt = Receipt.new
+    end
+
   end
 
   # GET /receipts/1/edit
@@ -25,10 +31,10 @@ class ReceiptsController < ApplicationController
   # POST /receipts.json
   def create
     if params[:student_id].blank?
-      @receipt = Receipt.new(receipt_params)
+      @receipt = @student.receipts.build(receipt_params)     
+     
     else
       @receipt = Receipt.new(receipt_params)
-      @receipt.student_id = params[:student_id]
     end
     
 
@@ -73,6 +79,9 @@ class ReceiptsController < ApplicationController
       @receipt = Receipt.find(params[:id])
     end
 
+    def set_student
+      @student = Student.find(params[:student_id])
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def receipt_params
       params.require(:receipt).permit(:student_id, :amount)
