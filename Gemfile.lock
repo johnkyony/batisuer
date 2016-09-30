@@ -184,6 +184,7 @@ GEM
       nenv (~> 0.1)
       shellany (~> 0.0)
     orm_adapter (0.5.0)
+    pg (0.19.0)
     pkg-config (1.1.7)
     pry (0.10.4)
       coderay (~> 1.1.0)
@@ -335,6 +336,7 @@ DEPENDENCIES
   minitest-rails
   minitest-rails-capybara
   minitest-reporters
+  pg
   pry-byebug
   pry-rails
   pundit

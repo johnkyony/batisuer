@@ -1,3 +1,4 @@
+
 %h1.sub-header Listing receipts
 
 
@@ -11,8 +12,9 @@
         %th Student Details 
         %th Amount        
         %th
-        %th
-        %th
+        %th              
+        %th= link_to 'New Receipt', new_receipt_path,class: "btn btn-primary "
+
 
     %tbody
       - @receipts.each do |receipt|
@@ -27,5 +29,4 @@
 
 %br
 
-= link_to 'New Receipt', new_receipt_path,class: "btn btn-primary"
 
