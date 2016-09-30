@@ -1,27 +1,24 @@
 %h1 Listing accounts
 
-.table-responsive
-
-  %table.table.table-striped
+%table
+  %thead
     %tr
-      %th Name 
-      %th Surname 
+      %th Student
       %th Grade
       %th Amount
       %th
       %th
       %th
 
-    %tbody
-      - @accounts.each do |account|
-        %tr
-          %td= account.student.name
-          %td= account.student.surname
-          %td= account.grade.name
-          %td= account.amount
-          
-          %td= link_to 'Edit', edit_account_path(account), class: "btn btn-primary"
-          %td= link_to 'Destroy', account, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-primary"
+  %tbody
+    - @accounts.each do |account|
+      %tr
+        %td= account.student.name
+        %td= account.grade.name
+        %td= account.amount
+        %td= link_to 'Show', account
+        %td= link_to 'Edit', edit_account_path(account)
+        %td= link_to 'Destroy', account, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 

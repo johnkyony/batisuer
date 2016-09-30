@@ -79,11 +79,6 @@ GEM
       railties (>= 4.1.0, < 5.1)
       responders
       warden (~> 1.2.3)
-    double_entry (1.0.0)
-      activerecord (>= 3.2.0)
-      activesupport (>= 3.2.0)
-      money (>= 6.0.0)
-      railties (>= 3.2.0)
     em-websocket (0.5.1)
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
@@ -180,9 +175,6 @@ GEM
       builder
       minitest (>= 5.0)
       ruby-progressbar
-    money (6.7.1)
-      i18n (>= 0.6.4, <= 0.7.0)
-      sixarm_ruby_unaccent (>= 1.1.1, < 2)
     multi_json (1.12.1)
     nenv (0.3.0)
     nokogiri (1.6.8)
@@ -278,7 +270,6 @@ GEM
     simple_form (3.3.1)
       actionpack (> 4, < 5.1)
       activemodel (> 4, < 5.1)
-    sixarm_ruby_unaccent (1.1.1)
     slim (3.0.7)
       temple (~> 0.7.6)
       tilt (>= 1.3.3, < 2.1)
@@ -331,7 +322,6 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   devise (~> 4.1.1)
-  double_entry
   faker
   font-awesome-sass
   guard-bundler

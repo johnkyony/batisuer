@@ -1,21 +1,20 @@
 %h1 Listing grades
 
-.table-responsive
-
-  %table.table.table-striped
+%table
+  %thead
     %tr
       %th Name
       %th
       %th
       %th
 
-    %tbody
-      - @grades.each do |grade|
-        %tr
-          %td= grade.name
-          
-          %td= link_to 'Edit', edit_grade_path(grade), class: "btn btn-primary"
-          %td= link_to 'Destroy', grade, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: "btn btn-primary"
+  %tbody
+    - @grades.each do |grade|
+      %tr
+        %td= grade.name
+        %td= link_to 'Show', grade
+        %td= link_to 'Edit', edit_grade_path(grade)
+        %td= link_to 'Destroy', grade, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 
