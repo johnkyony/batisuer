@@ -24,14 +24,20 @@ class ReceiptsController < ApplicationController
   # POST /receipts
   # POST /receipts.json
   def create
-    @receipt = Receipt.new(receipt_params)
+    if params[:student_id].blank?
+      @receipt = Receipt.new(receipt_params)
+    else
+      @receipt = Receipt.new(receipt_params)
+      @receipt.student_id = params[:student_id]
+    end
+    
 
     respond_to do |format|
       if @receipt.save
         format.html { redirect_to students_path, notice: 'Receipt was successfully created.' }
         format.json { render :show, status: :created, location: @receipt }
       else
-        format.html { render :new }
+        format.html { redirect_to :back , notice: 'Receipt cant be created due to error' }
         format.json { render json: @receipt.errors, status: :unprocessable_entity }
       end
     end

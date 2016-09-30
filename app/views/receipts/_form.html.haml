@@ -1,8 +1,19 @@
-= simple_form_for(@receipt) do |f|
-  = f.error_notification
+- if params[:student_id].blank?   
 
-  .form-inputs
-    = f.association :student 
-    = f.input :amount
-  .form-actions
-    = f.button :submit
+  = simple_form_for(@receipt) do |f|
+    = f.error_notification
+
+    .form-inputs
+      = f.association :student 
+      = f.input :amount
+    .form-actions
+      = f.button :submit
+- else 
+  = simple_form_for[ @student,@receipt] do |f|
+    = f.error_notification
+
+    .form-inputs
+     
+      = f.input :amount
+    .form-actions
+      = f.button :submit
