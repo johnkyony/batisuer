@@ -12,8 +12,12 @@
         %th Student Details 
         %th Amount        
         %th
-        %th              
-        %th= link_to 'New Receipt', new_receipt_path,class: "btn btn-primary "
+        %th
+        - if params[:student_id].blank?              
+          %th= link_to 'New Receipt', new_receipt_path,class: "btn btn-primary "
+        - else 
+          %th= link_to 'New Receipt', new_receipt_path,class: "btn btn-primary "
+
 
 
     %tbody
