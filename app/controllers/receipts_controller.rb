@@ -14,12 +14,12 @@ class ReceiptsController < ApplicationController
 
   # GET /receipts/new
   def new
-    if params[:student_id].blank?
-      @receipt = @student.receipts.new
+    # if params[:student_id].blank?
+      @receipt = @student.receipt.new
       
-    else
-      @receipt = Receipt.new
-    end
+    # else
+    #   @receipt = Receipt.new
+    # end
 
   end
 
@@ -30,12 +30,12 @@ class ReceiptsController < ApplicationController
   # POST /receipts
   # POST /receipts.json
   def create
-    if params[:student_id].blank?
-      @receipt = @student.receipts.build(receipt_params)     
+    # if params[:student_id].blank?
+      @receipt = @student.receipt.build(receipt_params)     
      
-    else
-      @receipt = Receipt.new(receipt_params)
-    end
+    # else
+    #   @receipt = Receipt.new(receipt_params)
+    # end
     
 
     respond_to do |format|
