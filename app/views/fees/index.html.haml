@@ -8,7 +8,7 @@
         %th Price
         %th
         %th
-        %th
+        %th= link_to 'New Fee', new_fee_path,class: "btn btn-primary"
 
     %tbody
       - @fees.each do |fee|
@@ -21,4 +21,4 @@
 
 %br
 
-= link_to 'New Fee', new_fee_path,class: "btn btn-primary"
+

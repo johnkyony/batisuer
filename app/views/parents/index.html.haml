@@ -1,6 +1,5 @@
 %h1 Listing parents
 
-= link_to 'New Parent', new_parent_path,class: "btn btn-primary"
 
 .table-responsive
 
@@ -14,6 +13,8 @@
         %th
         %th
         %th
+        %th= link_to 'New Parent', new_parent_path,class: "btn btn-primary"
+
 
     %tbody
       - @parents.each do |parent|

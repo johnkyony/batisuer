@@ -9,7 +9,7 @@
         %th Amount
         %th
         %th
-        %th
+        %th= link_to 'New Account', new_account_path,class: "btn btn-primary"
 
     %tbody
       - @accounts.each do |account|
@@ -23,4 +23,4 @@
 
 %br
 
-= link_to 'New Account', new_account_path
+
