@@ -5,7 +5,7 @@
       %h3.pull-right
         %small.text-uppercase Balance
         - if @account.blank?
-          %p Create account
+          = link_to "Create Account" , new_student_account_path , class: "btn btn-primary"  
         - else 
           = @final_balance
       %h2.h3
@@ -15,7 +15,8 @@
       %h3
         - if ! @account.blank?
           = @account.grade.name
-        - else   
+          = link_to "Create receipt" , new_student_receipt_path , class: "btn btn-primary pull-right"   
+
       %h4= "Parent name : \t"+@student.parent.name + "#{"\t"}"+@student.parent.surname
 
 %section.search-results
