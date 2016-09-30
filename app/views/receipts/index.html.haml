@@ -8,7 +8,7 @@
       %tr
         %th #
         %th Created on
-        %th Student
+        %th Student Details 
         %th Amount        
         %th
         %th
@@ -21,10 +21,11 @@
           %td= l receipt.created_at.to_date
           %td= "#{receipt.student.name} \t #{receipt.student.surname}"
           %td= receipt.amount
-          %td= link_to 'Show', receipt,class: "btn btn-primary"
+          
           %td= link_to 'Edit', edit_receipt_path(receipt),class: "btn btn-primary"
           %td= link_to 'Destroy', receipt, :method => :delete, :data => { :confirm => 'Are you sure?' },class: "btn btn-primary"
 
 %br
 
-= link_to 'New Receipt', new_receipt_path
+= link_to 'New Receipt', new_receipt_path,class: "btn btn-primary"
+

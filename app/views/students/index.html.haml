@@ -1,5 +1,6 @@
-- if current_user.administration?
-  = link_to 'New Student', new_student_path , class: "btn btn-primary"
+- if user_signed_in?
+  - if current_user.administration?
+    = link_to 'New Student', new_student_path , class: "btn btn-primary"
 
 
 
@@ -25,13 +26,14 @@
           %td= student.surname
           %td= student.parent.phone_number
           %td= student.parent.name + "#{"\t"}"+student.parent.surname
-          - if current_user.admin? || current_user.management? || current_user.finances?
-            %td=  link_to "Account details", student_account_balance_index_path(student),class: "btn btn-primary"
-          - if current_user.finances? || current_user.cashier?
-            %td= link_to "Create Receipts" ,  new_student_receipt_path(student), class: "btn btn-primary"
+          - if user_signed_in?
+            - if current_user.admin? || current_user.management? || current_user.finances?
+              %td=  link_to "Account details", student_account_balance_index_path(student),class: "btn btn-primary"
+            - if current_user.finances? || current_user.cashier?
+              %td= link_to "Create Receipts" ,  new_student_receipt_path(student), class: "btn btn-primary"
 
-          - if current_user.admin? || current_user.management? 
-            %td= link_to 'Edit', edit_student_path(student),class: "btn btn-primary pull-right"
-      
-            %td=  link_to 'Destroy', student, :method => :delete, :data => { :confirm => 'Are you sure?' },class: "btn btn-primary pull-right"
+            - if current_user.admin? || current_user.management? 
+              %td= link_to 'Edit', edit_student_path(student),class: "btn btn-primary "
+        
+              %td=  link_to 'Destroy', student, :method => :delete, :data => { :confirm => 'Are you sure?' },class: "btn btn-primary "
      

@@ -30,5 +30,5 @@ Rails.application.routes.draw do
   resources :parents
   devise_for :users
   resources :users
-  root to: 'visitors#index'
+  root to: 'students#index'
 end
