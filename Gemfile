@@ -8,7 +8,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'faker'
+gem 'double_entry'
 group :development, :test do
   gem 'sqlite3'
   gem 'byebug'
