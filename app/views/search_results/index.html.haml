@@ -1,0 +1,39 @@
+%h2.sub-header Listing students
+.table-responsive
+  %table.table.table-striped
+    %thead
+      %tr
+        %th #
+        %th Name
+        %th Surname
+        %th Parent Contact
+        %th Parent name
+        %th 
+        %th 
+        %th          
+        - if user_signed_in?
+          - if current_user.administration?|| current_user.admin?
+            - if params[:parent_id].blank?
+              %th= link_to 'New Student', new_student_path , class: "btn btn-primary pull-right"
+            - else 
+              %th= link_to 'New Student',  new_parent_student_path , class: "btn btn-primary pull-right"
+
+    %tbody
+      - @students.each do |student| 
+        %tr[student]
+          %td= student.id
+          %td= student.name
+          %td= student.surname
+          %td= student.parent.phone_number
+          %td= student.parent.name + "#{"\t"}"+student.parent.surname
+          - if user_signed_in?
+            - if current_user.admin? || current_user.management? || current_user.finances?
+              %td=  link_to "Account details", student_account_balance_index_path(student),class: "btn btn-primary"
+            - if current_user.finances? || current_user.cashier?
+              %td= link_to "Create Receipts" ,  new_student_receipt_path(student), class: "btn btn-primary"
+
+            - if current_user.admin? || current_user.management? 
+              %td= link_to 'Edit', edit_student_path(student),class: "btn btn-primary "
+        
+              %td=  link_to 'Destroy', student, :method => :delete, :data => { :confirm => 'Are you sure?' },class: "btn btn-primary "
+     

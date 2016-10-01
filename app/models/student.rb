@@ -8,8 +8,8 @@ class Student < ActiveRecord::Base
   validates_presence_of :parent
 
   def self.search(search)
-    where("name ILIKE ?" , "%#{search}%" , "OR surname ILIKE?" , "%#{search}%")
-    
+    where("name LIKE ?" , "%#{search}%")
+    # where("surname LIKE ?" , "%#{search}%")
   end
 
 
