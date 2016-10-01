@@ -20,6 +20,6 @@
       
      
       = form_tag(search_results_index_path, :method => "get", id: "search-form" , class: "navbar-form navbar-right" ) do
-        = text_field_tag :search, params[:search], placeholder: "Search Track"
+        = text_field_tag :search, params[:search], placeholder: "Search Name of student"
         = submit_tag "Search" , class: "fa fa-search"
 
