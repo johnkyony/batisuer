@@ -7,4 +7,10 @@ class Student < ActiveRecord::Base
   validates_presence_of :surname
   validates_presence_of :parent
 
+  def self.search(search)
+    where("name ILIKE ?" , "%#{search}%" , "OR surname ILIKE?" , "%#{search}%")
+    
+  end
+
+
 end

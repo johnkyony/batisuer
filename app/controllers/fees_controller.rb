@@ -1,6 +1,6 @@
 class FeesController < ApplicationController
   before_action :set_fee, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_grade , only:[:new , :create]
   # GET /fees
   # GET /fees.json
   def index
@@ -14,7 +14,7 @@ class FeesController < ApplicationController
 
   # GET /fees/new
   def new
-    @fee = Fee.new
+    @fee = @grade.fee.new
   end
 
   # GET /fees/1/edit
@@ -24,8 +24,8 @@ class FeesController < ApplicationController
   # POST /fees
   # POST /fees.json
   def create
-    @fee = Fee.new(fee_params)
-
+    @fee = @grade.fee.build(fee_params)
+    
     respond_to do |format|
       if @fee.save
         format.html { redirect_to @fee, notice: 'Fee was successfully created.' }
@@ -65,6 +65,10 @@ class FeesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_fee
       @fee = Fee.find(params[:id])
+    end
+
+    def set_grade
+      @grade = Grade.find(params[:grade_id])      
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

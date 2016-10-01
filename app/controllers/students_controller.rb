@@ -1,9 +1,9 @@
 class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_parent, only: [:new, :create]
   # GET /students
   # GET /students.json
-  def index
+  def index    
     if params[:parent_id].blank?
       @students = Student.all
     else
@@ -14,6 +14,7 @@ class StudentsController < ApplicationController
       @total_balance = -account_amounts.sum + receipts.sum
 
     end
+    
   end
   
   # GET /students/1
@@ -23,7 +24,7 @@ class StudentsController < ApplicationController
 
   # GET /students/new
   def new
-    @student = Student.new
+    @student = @parent.student.new
   end
 
   # GET /students/1/edit
@@ -33,8 +34,8 @@ class StudentsController < ApplicationController
   # POST /students
   # POST /students.json
   def create
-    @student = Student.new(student_params)
-    
+    @student = @parent.student.build(student_params)
+ 
 
     respond_to do |format|
       if @student.save
@@ -75,6 +76,10 @@ class StudentsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_student
       @student = Student.find(params[:id])
+    end
+
+    def set_parent
+      @parent = Parent.find(params[:parent_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

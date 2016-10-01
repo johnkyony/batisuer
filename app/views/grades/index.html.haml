@@ -14,6 +14,7 @@
       - @grades.each do |grade|
         %tr
           %td= grade.name
+          %td= link_to 'Create Fee' ,  new_grade_fee_path(grade) ,class: "btn btn-primary"
           
           %td= link_to 'Edit', edit_grade_path(grade),class: "btn btn-primary"
           %td= link_to 'Destroy', grade, :method => :delete, :data => { :confirm => 'Are you sure?' },class: "btn btn-primary"
