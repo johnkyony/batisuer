@@ -1,5 +1,6 @@
 class AccountsController < ApplicationController
   before_action :set_account, only: [:show, :edit, :update, :destroy]
+  before_action :set_student, only: [:new, :create]
 
   # GET /accounts
   # GET /accounts.json
@@ -14,7 +15,7 @@ class AccountsController < ApplicationController
 
   # GET /accounts/new
   def new
-    @account = Account.new
+    @account = @student.account.new
   end
 
   # GET /accounts/1/edit
@@ -24,9 +25,8 @@ class AccountsController < ApplicationController
   # POST /accounts
   # POST /accounts.json
   def create
-    @account = Account.new(account_params)
-    # starting_balance = Fee.find_by_grade_id(params[:grade_id])
-    # @account.amount = starting_balance.price
+    @account = @student.account.build(account_params)
+    
 
     respond_to do |format|
       # if starting_balance.blank?
@@ -73,6 +73,10 @@ class AccountsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_account
       @account = Account.find(params[:id])
+    end
+
+    def set_student
+      @student = Student.find(params[:student_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

@@ -22,24 +22,24 @@ end
     parent_id:"#{i+1}")
 end
 
-12.times do |i|
-  Grade.create!(
-    name: "Grade #{i+1}" 
-    )
-end
+# 12.times do |i|
+#   Grade.create!(
+#     name: "Grade #{i+1}" 
+#     )
+# end
 
-12.times do |i|
-  Account.create!(
-    student_id: "#{i+1}",
-    grade_id: "#{i+1}",
-    amount: "#{i*5+50}")
-end
+# 12.times do |i|
+#   Account.create!(
+#     student_id: "#{i+1}",
+#     grade_id: "#{i+1}",
+#     amount: "#{i*5+50}")
+# end
 
-12.times do |i|
-  Fee.create!(grade_id: "#{i+1}",
-  price: "#{i*5+50}")
+# 12.times do |i|
+#   Fee.create!(grade_id: "#{i+1}",
+#   price: "#{i*5+50}")
   
-end
+# end
 
 
 

@@ -1,8 +1,8 @@
-= simple_form_for(@account) do |f|
+= simple_form_for([@student,@account]) do |f|
   = f.error_notification
 
   .form-inputs
-    = f.association :student
+    
     = f.association :grade
     = f.input :amount
 

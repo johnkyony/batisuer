@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :directions
   get 'search_results/index'
 
   resources :receipts
