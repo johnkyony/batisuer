@@ -7,11 +7,11 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 # Parent.delete_all 
 # Student.delete_all
-Fees.delete_all
+# Fees.delete_all
 
-Grade.delete_all
-Account.delete_all
-Receipt.delete_all
+# Grade.delete_all
+# Account.delete_all
+# Receipt.delete_all
 # 50.times do |i|
 #   Parent.create!(
 #     name: Faker::Name.first_name,

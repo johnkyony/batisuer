@@ -14,7 +14,7 @@
       - @grades.each do |grade|
         %tr
           %td= grade.name
-          %td= link_to 'New strean', new_grade_stream_path(grade),class: "btn btn-primary"
+          %td= link_to 'New stream', new_grade_stream_path(grade),class: "btn btn-primary"
           %td= link_to 'View streams', grade_streams_path(grade),class: "btn btn-primary"
           %td= link_to 'Create Fee' ,  new_grade_fee_path(grade) ,class: "btn btn-primary"
           
