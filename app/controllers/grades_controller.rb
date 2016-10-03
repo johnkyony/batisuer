@@ -1,10 +1,15 @@
 class GradesController < ApplicationController
   before_action :set_grade, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_direction , only: [:new , :create]
   # GET /grades
   # GET /grades.json
   def index
-    @grades = Grade.all
+    if params[:direction_id].blank?
+      @grades = Grade.all
+    else
+      @grades = Grade.where(:direction_id => params[:direction_id])
+    end
+
   end
 
   # GET /grades/1
@@ -14,7 +19,7 @@ class GradesController < ApplicationController
 
   # GET /grades/new
   def new
-    @grade = Grade.new
+    @grade = @direction.grade.new
   end
 
   # GET /grades/1/edit
@@ -24,7 +29,8 @@ class GradesController < ApplicationController
   # POST /grades
   # POST /grades.json
   def create
-    @grade = Grade.new(grade_params)
+    @grade = @direction.grade.build(grade_params)
+
 
     respond_to do |format|
       if @grade.save
@@ -67,8 +73,13 @@ class GradesController < ApplicationController
       @grade = Grade.find(params[:id])
     end
 
+    def set_direction 
+      @direction = Direction.find(params[:direction_id])
+      
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def grade_params
-      params.require(:grade).permit(:name)
+      params.require(:grade).permit(:name )
     end
 end

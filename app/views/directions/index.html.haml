@@ -1,21 +1,26 @@
 %h1 Listing directions
 
-%table
-  %thead
-    %tr
-      %th Name
-      %th
-      %th
-      %th
+.table-responsive
 
-  %tbody
-    - @directions.each do |direction|
+  %table.table.table-striped
+    %thead
       %tr
-        %td= direction.name
-        %td= link_to 'Show', direction
-        %td= link_to 'Edit', edit_direction_path(direction)
-        %td= link_to 'Destroy', direction, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        %th Name
+        %th
+        %th
+        %th
+        %th
+        %th= link_to 'New Direction', new_direction_path , class: "btn btn-primary"
+
+
+    %tbody
+      - @directions.each do |direction|
+        %tr
+          %td= direction.name
+          %td= link_to 'View Grades' ,  direction_grades_path(direction) , class: " btn btn-primary"
+          %td= link_to 'Add Grades', new_direction_grade_path(direction),class: "btn btn-primary"
+          %td= link_to 'Edit', edit_direction_path(direction),class: "btn btn-primary"
+          %td= link_to 'Destroy', direction, :method => :delete, :data => { :confirm => 'Are you sure?' },class: "btn btn-primary"
 
 %br
 
-= link_to 'New Direction', new_direction_path

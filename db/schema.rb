@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161001150959) do
+ActiveRecord::Schema.define(version: 20161003134046) do
 
   create_table "accounts", force: :cascade do |t|
     t.integer  "student_id"
@@ -141,6 +141,15 @@ ActiveRecord::Schema.define(version: 20161001150959) do
   end
 
   add_index "receipts", ["student_id"], name: "index_receipts_on_student_id"
+
+  create_table "streams", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "grade_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "streams", ["grade_id"], name: "index_streams_on_grade_id"
 
   create_table "students", force: :cascade do |t|
     t.string   "name"

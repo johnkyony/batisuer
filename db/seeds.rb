@@ -5,22 +5,22 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Parent.delete_all 
-Student.delete_all
+# Parent.delete_all 
+# Student.delete_all
 Grade.delete_all
-50.times do |i|
-  Parent.create!(
-    name: Faker::Name.first_name,
-    surname: Faker::Name.last_name,
-    phone_number: Faker::PhoneNumber.cell_phone)
-end
+# 50.times do |i|
+#   Parent.create!(
+#     name: Faker::Name.first_name,
+#     surname: Faker::Name.last_name,
+#     phone_number: Faker::PhoneNumber.cell_phone)
+# end
 
-50.times do |i|
-  Student.create!(
-    name: Faker::Name.first_name,
-    surname: Faker::Name.last_name,
-    parent_id:"#{i+1}")
-end
+# 50.times do |i|
+#   Student.create!(
+#     name: Faker::Name.first_name,
+#     surname: Faker::Name.last_name,
+#     parent_id:"#{i+1}")
+# end
 
 # 12.times do |i|
 #   Grade.create!(

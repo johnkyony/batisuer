@@ -1,4 +1,7 @@
 class Grade < ActiveRecord::Base
-  has_many :fee
+  belongs_to :direction
+  has_many :fee  
+  has_many :stream
   validates_presence_of :name
+  validates_uniqueness_of :name
 end

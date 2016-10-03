@@ -1,0 +1,24 @@
+%h1 Listing streams
+.table-responsive
+
+  %table.table.table-striped
+    %thead
+      %tr
+        %th Name
+        %th Grade
+        %th
+        %th
+        %th
+
+    %tbody
+      - @streams.each do |stream|
+        %tr
+          %td= stream.name
+          %td= stream.grade.name
+          %td= link_to 'Show', stream,class: "btn btn-primary "
+          %td= link_to 'Edit', edit_stream_path(stream),class: "btn btn-primary "
+          %td= link_to 'Destroy', stream, :method => :delete, :data => { :confirm => 'Are you sure?' },class: "btn btn-primary "
+
+%br
+
+

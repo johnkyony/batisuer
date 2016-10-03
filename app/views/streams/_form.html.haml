@@ -1,8 +1,9 @@
-= simple_form_for([@direction,@grade]) do |f|
+= simple_form_for([@grade,@stream]) do |f|
   = f.error_notification
 
   .form-inputs
     = f.input :name
+   
 
   .form-actions
     = f.button :submit

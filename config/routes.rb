@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :streams
   resources :directions
   get 'search_results/index'
 
@@ -21,7 +22,12 @@ Rails.application.routes.draw do
   resources :parents do   
     resources :students
   end
-  
+  resources :directions do 
+    resources :grades
+  end
+  resources :grades do 
+    resources :streams
+  end
   resources :grades do
     resources :fees 
   end
