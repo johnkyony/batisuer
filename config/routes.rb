@@ -28,6 +28,9 @@ Rails.application.routes.draw do
   resources :grades do 
     resources :streams
   end
+  resources :fees do 
+    resources :accounts
+  end
   resources :grades do
     resources :fees 
   end
