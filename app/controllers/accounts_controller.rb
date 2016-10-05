@@ -37,7 +37,7 @@ class AccountsController < ApplicationController
         
       # else
         if @account.save
-          format.html { redirect_to @account, notice: 'Account was successfully created.' }
+          format.html { redirect_to student_account_balance_index_path(params[:student_id]), notice: 'Account was successfully created.' }
           format.json { render :show, status: :created, location: @account }
         else
           format.html { render :new }
