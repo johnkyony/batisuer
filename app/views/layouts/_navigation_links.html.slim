@@ -11,11 +11,10 @@
     li = link_to 'students' , students_path
     li = link_to 'accounts' , accounts_path
     li = link_to 'receipts' , receipts_path
-    li = link_to 'fees' , fees_path
+    
         
 - if user_signed_in?
   - if current_user.admin? || current_user.management?
-    li = link_to 'fees' , fees_path
     li = link_to 'grades' , grades_path
     li = link_to 'students' , students_path
     li = link_to 'parents' , parents_path
