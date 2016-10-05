@@ -5,7 +5,7 @@
       %h3.pull-right
         %small.text-uppercase Balance
         - if @account.blank?
-          = link_to "Create Account" , new_student_account_path , class: "btn btn-primary"  
+          = link_to "Create Account" , student_fees_path(@student) , class: "btn btn-primary"  
         - else 
           = @final_balance
       %h2.h3

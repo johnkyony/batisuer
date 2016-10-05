@@ -1,7 +1,7 @@
 class AccountsController < ApplicationController
   before_action :set_account, only: [:show, :edit, :update, :destroy]
   before_action :set_student, only: [:new, :create]
-
+  before_action :set_fee , only: [:new , :create]
   # GET /accounts
   # GET /accounts.json
   def index
@@ -25,8 +25,11 @@ class AccountsController < ApplicationController
   # POST /accounts
   # POST /accounts.json
   def create
-    @account = @student.account.build(account_params)
-    
+    @account = Account.new
+    @account.student_id = params[:student_id]
+    fee = Fee.find(params[:fee_id])
+    @account.grade_id = fee.grade_id
+    @account.amount = fee.price
 
     respond_to do |format|
       # if starting_balance.blank?
@@ -77,6 +80,11 @@ class AccountsController < ApplicationController
 
     def set_student
       @student = Student.find(params[:student_id])
+    end
+
+    def set_fee
+      @fee = Fee.find(params[:fee_id])
+      
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

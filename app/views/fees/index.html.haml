@@ -14,7 +14,7 @@
         %tr
           %td= fee.grade.name
           %td= fee.price
-          
+          %td= link_to 'Student grade',  student_fee_accounts_path(params[:student_id] , fee), method: :post , class: "btn btn-primary"       
           %td= link_to 'Edit', edit_fee_path(fee),class: "btn btn-primary"
           %td= link_to 'Destroy', fee, :method => :delete, :data => { :confirm => 'Are you sure?' },class: "btn btn-primary"
 

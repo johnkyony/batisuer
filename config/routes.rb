@@ -31,6 +31,12 @@ Rails.application.routes.draw do
   resources :fees do 
     resources :accounts
   end
+
+  resources :students do 
+    resources :fees do 
+      resources :accounts
+    end
+  end
   resources :grades do
     resources :fees 
   end
