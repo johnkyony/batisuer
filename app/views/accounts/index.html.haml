@@ -4,17 +4,17 @@
   %table.table.table-striped
     %thead
       %tr
-        %th Student
+        %th Student Details
         %th Grade
         %th Amount
         %th
         %th
-        %th= link_to 'New Account', new_account_path,class: "btn btn-primary"
+        %th
 
     %tbody
       - @accounts.each do |account|
         %tr
-          %td= account.student.name
+          %td= account.student.name + "\t" + account.student.surname 
           %td= account.grade.name
           %td= account.amount
           
