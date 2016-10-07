@@ -28,7 +28,7 @@ class DirectionsController < ApplicationController
 
     respond_to do |format|
       if @direction.save
-        format.html { redirect_to @direction, notice: 'Direction was successfully created.' }
+        format.html { redirect_to directions_path, notice: 'Direction was successfully created.' }
         format.json { render :show, status: :created, location: @direction }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class DirectionsController < ApplicationController
   def update
     respond_to do |format|
       if @direction.update(direction_params)
-        format.html { redirect_to @direction, notice: 'Direction was successfully updated.' }
+        format.html { redirect_to directions_path, notice: 'Direction was successfully updated.' }
         format.json { render :show, status: :ok, location: @direction }
       else
         format.html { render :edit }

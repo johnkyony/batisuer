@@ -28,7 +28,7 @@ class FeesController < ApplicationController
     
     respond_to do |format|
       if @fee.save
-        format.html { redirect_to @fee, notice: 'Fee was successfully created.' }
+        format.html { redirect_to @grade, notice: 'Fee was successfully created.' }
         format.json { render :show, status: :created, location: @fee }
       else
         format.html { render :new }
