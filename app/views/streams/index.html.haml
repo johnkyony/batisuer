@@ -8,7 +8,7 @@
         %th Grade
         %th
         %th
-        %th
+        %th= link_to "Back" , grade_streams_path(params[:grade_id]), class: "btn-primary btn"
 
     %tbody
       - @streams.each do |stream|
