@@ -1,6 +1,8 @@
 class StreamsController < ApplicationController
   before_action :set_stream, only: [:show, :edit, :update, :destroy]
   before_action :set_grade , only: [:new, :create]
+  before_action :authenticate_user!
+
   # GET /streams
   # GET /streams.json
   def index

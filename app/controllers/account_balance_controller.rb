@@ -1,4 +1,6 @@
 class AccountBalanceController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @student = Student.find_by_id(params[:student_id])
     @account = Account.find_by_student_id(params[:student_id])

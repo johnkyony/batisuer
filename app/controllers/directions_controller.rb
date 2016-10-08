@@ -1,5 +1,6 @@
 class DirectionsController < ApplicationController
   before_action :set_direction, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /directions
   # GET /directions.json
