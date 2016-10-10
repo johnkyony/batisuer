@@ -4,7 +4,6 @@
     li = link_to 'Direction' , directions_path
   - if current_user.cashier?
     li = link_to 'students' , students_path
-    li = link_to 'receipts' , receipts_path
   - if current_user.administration?    
     li = link_to 'parents' , parents_path
   - if current_user.finances?

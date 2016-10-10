@@ -3,6 +3,7 @@ class StreamsController < ApplicationController
   before_action :set_grade , only: [:new, :create]
   before_action :authenticate_user!
 
+  load_and_authorize_resource
   # GET /streams
   # GET /streams.json
   def index

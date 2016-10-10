@@ -3,6 +3,7 @@ class ReceiptsController < ApplicationController
   before_action :set_student, only: [:new, :create]
   before_action :authenticate_user!
 
+  load_and_authorize_resource
   # GET /receipts
   # GET /receipts.json
   def index

@@ -3,6 +3,7 @@ class GradesController < ApplicationController
   before_action :set_direction , only: [:new , :create]
   before_action :authenticate_user!
 
+  load_and_authorize_resource
   # GET /grades
   # GET /grades.json
   def index

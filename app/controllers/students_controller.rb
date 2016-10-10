@@ -25,6 +25,7 @@ class StudentsController < ApplicationController
   # GET /students/new
   def new
     @student = @parent.student.new
+    authorize! :new, @student
   end
 
   # GET /students/1/edit
@@ -45,6 +46,7 @@ class StudentsController < ApplicationController
         format.html { render :new }
         format.json { render json: @student.errors, status: :unprocessable_entity }
       end
+      authorize! :create , @student
     end
   end
 
@@ -70,6 +72,8 @@ class StudentsController < ApplicationController
       format.html { redirect_to students_url, notice: 'Student was successfully destroyed.' }
       format.json { head :no_content }
     end
+    authorize! :delete , @student
+
   end
 
   private
