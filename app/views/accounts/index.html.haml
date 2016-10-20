@@ -12,14 +12,17 @@
         %th
 
     %tbody
-      - @accounts.each do |account|
-        %tr
-          %td= account.student.name + "\t" + account.student.surname 
-          %td= account.grade.name
-          %td= account.amount
+      - if  @accounts.blank?
+        - @accounts.each do |account|
+          %tr
+            %td= account.student.name + "\t" + account.student.surname 
+            %td= account.grade.name
+            %td= account.amount
           
-          %td= link_to 'Edit', edit_account_path(account),class: "btn btn-primary"
-          %td= link_to 'Destroy', account, :method => :delete, :data => { :confirm => 'Are you sure?' },class: "btn btn-primary"
+            %td= link_to 'Edit', edit_account_path(account),class: "btn btn-primary"
+            %td= link_to 'Destroy', account, :method => :delete, :data => { :confirm => 'Are you sure?' },class: "btn btn-primary"
+      - else  
+        %p May you please create a student account
 
 %br
 
