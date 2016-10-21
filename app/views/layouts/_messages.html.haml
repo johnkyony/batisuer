@@ -4,10 +4,4 @@
     %div#flash{:class => "alert alert-dismissible alert-#{name.to_s == 'notice' ? 'success' : 'danger'}"}
       %button.close{"aria-hidden" => "true", "data-dismiss" => "alert", :type => "button"} &times;
       = content_tag :div, msg, :id => "flash_#{name}"
- :javascript
-     $(document).ready(function(){
-         setTimeout(function(){
-               $('#flash').remove();
-                   }, 5000);
-                      })
-
+= render 'layouts/flash_javascript'      
