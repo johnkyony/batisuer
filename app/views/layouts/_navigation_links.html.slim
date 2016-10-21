@@ -3,21 +3,21 @@
     li = link_to 'Users', users_path
     li = link_to 'Direction' , directions_path
   - if current_user.cashier?
-    li = link_to 'students' , students_path
+    li = link_to 'Students' , students_path
   - if current_user.administration?    
-    li = link_to 'parents' , parents_path
+    li = link_to 'Parents' , parents_path
   - if current_user.finances?
-    li = link_to 'students' , students_path
-    li = link_to 'accounts' , accounts_path
-    li = link_to 'receipts' , receipts_path
+    li = link_to 'Students' , students_path
+    li = link_to 'Accounts' , accounts_path
+    li = link_to 'Receipts' , receipts_path
     
         
 - if user_signed_in?
   - if current_user.admin? || current_user.management?|| current_user.dev?
-    li = link_to 'grades' , grades_path
-    li = link_to 'students' , students_path
-    li = link_to 'parents' , parents_path
-    li = link_to 'accounts' , accounts_path
-    li = link_to 'receipts' , receipts_path
+    li = link_to 'Grades' , grades_path
+    li = link_to 'Students' , students_path
+    li = link_to 'Parents' , parents_path
+    li = link_to 'Accounts' , accounts_path
+    li = link_to 'Receipts' , receipts_path
 
 

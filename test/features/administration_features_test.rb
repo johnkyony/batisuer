@@ -33,5 +33,4 @@ feature "AdministrationFeatures" do
     
   end
 
-  scenario "Administration can add new "
 end
