@@ -13,7 +13,7 @@
     
         
 - if user_signed_in?
-  - if current_user.admin? || current_user.management?
+  - if current_user.admin? || current_user.management?|| current_user.dev?
     li = link_to 'grades' , grades_path
     li = link_to 'students' , students_path
     li = link_to 'parents' , parents_path

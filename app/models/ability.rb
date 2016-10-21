@@ -29,6 +29,8 @@ class Ability
         can :manage , :all 
       elsif user.management?
          can :manage, :all 
+      elsif user.dev?
+        can :manage,:all
       end 
     # The first argument to `can` is the action you are giving the user
     # permission to do.
