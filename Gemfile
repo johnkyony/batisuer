@@ -10,6 +10,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'cancancan', '~> 1.10'
 gem 'turbolinks_transitions'
+gem 'annotate'
 group :development, :test do
   gem 'sqlite3'
   gem 'byebug'

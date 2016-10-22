@@ -1,5 +1,18 @@
+# == Schema Information
+#
+# Table name: students
+#
+#  id               :integer          not null, primary key
+#  name             :string
+#  surname          :string
+#  parent_id        :integer
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  profile_image_id :string
+#
+
 class Student < ActiveRecord::Base
-  belongs_to :parent
+  has_many :parent
   has_many :account
   has_many :receipt
 

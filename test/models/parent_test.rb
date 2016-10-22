@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: parents
+#
+#  id           :integer          not null, primary key
+#  name         :string
+#  surname      :string
+#  phone_number :string
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
 # require "test_helper"
 
 # describe Parent do
